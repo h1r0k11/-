@@ -1,0 +1,115 @@
+/* 背景色と全体設定 */
+body, html {
+  background-color: #c1e1b0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin-top: 52px;
+}
+
+/* ナビゲーション */
+.navbar {
+  top: 0;
+  position: fixed;
+  background-color: #c1e1b0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+}
+
+.navbar a {
+  color: rgb(0, 0, 0);
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+.navbar a:hover {
+  background-color: #dfdfdf91;
+}
+
+/* ロゴオーバーレイ（背景+アニメーション全体） */
+/* ロゴオーバーレイ（白背景） */
+.logo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOutLogo 1s ease forwards;
+  animation-delay: 5s;
+}
+
+/* 中央に大きく表示されるロゴ */
+.coffee-logo {
+  position: relative;
+  width: 500px;   /* ← 大きく表示 */
+  height: 500px;
+}
+
+/* 中の画像（ポット・カップ）も大きく対応 */
+.coffee-logo img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* 画像の比率を崩さず拡大 */
+  top: 0;
+  left: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+/* ポット画像（最初に表示） */
+.pot {
+  z-index: 2;
+  animation: potRotate 2s ease forwards;
+}
+
+/* カップ画像（後から出現） */
+.cup {
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: cupAppear 2s ease forwards 1s;
+}
+
+/* ポットが左90度に回転しながら消える */
+@keyframes potRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-90deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* カップが登場して大きくなる */
+@keyframes cupAppear {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 白背景とロゴ全体をフェードアウトして非表示に */
+@keyframes fadeOutLogo {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,132 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #c1e1b0;
+  }
+  
+
+  h1{
+    display: flex;
+  }
+
+  header {
+    top: 0px;
+    width: 100%;
+    height: 80px;
+    background-color: #c1e1b0;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .header-inner {
+    width: 1000px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #c1e1b0;
+    padding:  10px;
+}
+
+.header-nav .nav-list {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.header-nav .nav-list li {
+    margin: 0 15px;
+}
+
+.header-nav .nav-list a {
+    text-decoration: none;
+    color: #333; 
+    font-weight: bold;
+}
+
+
+  .logo-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    transition: all 1s ease-in-out;
+  }
+
+  .logo-center.to-header {
+    top: 0px;
+    left: 50%;
+    transform: translateX(-540%) scale(0);
+  }
+
+  .header-inner {
+    display: flex;
+  } 
+
+  .logo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease;
+}
+
+.logo-overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1.2s ease-in-out;
+  z-index: 10000;
+}
+
+.logo-center.to-header {
+  top: -150px;         
+  left: -50px;        
+  transform: scale(0.2);
+  opacity: 0;
+}
+
+.footer-content{
+  display: flex;
+  justify-content: center;
+}
+
+.footer ul {
+    display: flex;
+    justify-content: center; /* または space-around / space-between など好みに応じて */
+    list-style: none; /* ← マーカーを消す */
+    padding: 0;
+    margin: 0;
+}
+
+.footer li {
+    margin: 0 15px;
+}
+
+.footer nav a {
+    text-decoration: none;
+    color: #e7e7e7; 
+    font-weight: bold;
+}
+
+.footer-copy{
+  margin-left: 530px;
+}
